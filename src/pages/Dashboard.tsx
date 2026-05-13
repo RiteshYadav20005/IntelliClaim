@@ -40,14 +40,14 @@ export default function Dashboard() {
     <div className="p-8 max-w-7xl mx-auto space-y-8 animate-in fade-in duration-500">
       <div className="flex justify-between items-center">
         <h1 className="text-3xl font-sora font-semibold text-dark">Dashboard Overview</h1>
-        <p className="text-muted text-sm border bg-white px-4 py-1.5 rounded-full shadow-sm">Last update: Real-time</p>
+        <p className="text-muted text-sm border bg-card px-4 py-1.5 rounded-full shadow-sm">Last update: Real-time</p>
       </div>
 
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
         {stats.map((stat) => {
           const Icon = stat.icon;
           return (
-            <div key={stat.name} className="bg-white rounded-card shadow-card border border-border p-6 hover:shadow-lg transition-shadow">
+            <div key={stat.name} className="bg-card rounded-card shadow-card border border-border p-6 hover:shadow-lg transition-shadow">
               <div className="flex items-center gap-4">
                 <div className={`p-3 rounded-xl bg-surface ${stat.color}`}>
                   <Icon className="h-6 w-6" strokeWidth={2} />
@@ -63,7 +63,7 @@ export default function Dashboard() {
       </div>
 
       <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
-        <div className="bg-white rounded-card shadow-card border border-border p-6 h-96 flex flex-col">
+        <div className="bg-card rounded-card shadow-card border border-border p-6 h-96 flex flex-col">
           <h2 className="text-lg font-sora font-semibold text-dark mb-6">Claims by Risk Level (Weekly)</h2>
           <div className="flex-1 w-full relative min-h-[200px]">
             <div className="absolute inset-0">
@@ -82,7 +82,7 @@ export default function Dashboard() {
           </div>
         </div>
 
-        <div className="bg-white rounded-card shadow-card border border-border p-6 h-96 flex flex-col">
+        <div className="bg-card rounded-card shadow-card border border-border p-6 h-96 flex flex-col">
           <h2 className="text-lg font-sora font-semibold text-dark mb-6">Avg Fraud Score Trend (30 Days)</h2>
           <div className="flex-1 w-full relative min-h-[200px]">
             <div className="absolute inset-0">
@@ -106,7 +106,7 @@ export default function Dashboard() {
         </div>
       </div>
 
-      <div className="bg-white rounded-card shadow-card border border-border overflow-hidden">
+      <div className="bg-card rounded-card shadow-card border border-border overflow-hidden">
         <div className="px-6 py-5 border-b border-border flex justify-between items-center bg-surface/50">
           <h3 className="text-xl font-sora font-semibold text-dark">Real-time Claims Feed</h3>
           <Link to="/claims" className="text-sm font-semibold text-primary hover:text-primary-light flex items-center transition-colors">
@@ -115,7 +115,7 @@ export default function Dashboard() {
         </div>
         <div className="overflow-x-auto">
           <table className="min-w-full divide-y divide-border text-left">
-            <thead className="bg-white">
+            <thead className="bg-card">
               <tr>
                 <th className="px-6 py-4 text-sm font-medium text-muted uppercase tracking-wider">Claim ID</th>
                 <th className="px-6 py-4 text-sm font-medium text-muted uppercase tracking-wider">Uploaded</th>
@@ -124,7 +124,7 @@ export default function Dashboard() {
                 <th className="px-6 py-4 text-right text-sm font-medium text-muted uppercase tracking-wider">Action</th>
               </tr>
             </thead>
-            <tbody className="divide-y divide-border bg-white">
+            <tbody className="divide-y divide-border bg-card">
               {recentClaims.map((claim) => (
                 <tr key={claim.id} className="hover:bg-surface transition-colors group">
                   <td className="px-6 py-4 text-sm font-semibold text-dark whitespace-nowrap">{claim.id}</td>

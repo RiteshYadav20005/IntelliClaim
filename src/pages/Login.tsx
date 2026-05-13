@@ -31,7 +31,7 @@ export default function Login() {
          <div className="absolute bottom-[-10%] right-[-10%] w-[50%] h-[50%] rounded-full bg-primary-light/10 blur-[100px]" />
       </div>
       
-      <div className="w-full max-w-md bg-white border border-border shadow-card rounded-card p-10 relative z-10 animate-in fade-in zoom-in-95 duration-500">
+      <div className="w-full max-w-md bg-card border border-border shadow-card rounded-card p-10 relative z-10 animate-in fade-in zoom-in-95 duration-500">
         <div className="flex flex-col items-center mb-8">
           <div className="p-3 bg-surface rounded-2xl mb-4 text-primary">
             <ShieldAlert className="w-10 h-10" />

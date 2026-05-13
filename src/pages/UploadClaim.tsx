@@ -56,26 +56,26 @@ export default function UploadClaim() {
       <p className="text-muted mb-8">Upload a medical bill, hospital discharge summary, or invoice to begin investigation.</p>
       
       {!isUploading && currentStep === 0 ? (
-        <div className="bg-white border border-border rounded-card shadow-card p-10 mt-6 transition-all">
+        <div className="bg-card border border-border rounded-card shadow-card p-10 mt-6 transition-all">
           <div 
             className="border-2 border-dashed border-primary/30 bg-primary/5 rounded-2xl p-16 text-center hover:bg-primary/10 hover:border-primary/50 transition-colors cursor-pointer flex flex-col items-center justify-center"
             onDragOver={handleDragOver}
             onDrop={handleDrop}
             onClick={() => document.getElementById('file-upload')?.click()}
           >
-            <div className="p-4 bg-white rounded-full shadow-sm mb-4">
+            <div className="p-4 bg-card rounded-full shadow-sm mb-4">
               <UploadCloud className="h-10 w-10 text-primary" />
             </div>
             <h3 className="text-lg font-sora font-semibold text-dark">Drop PDF or image here</h3>
             <p className="text-sm text-muted mt-2">or click to browse from your computer</p>
             <input id="file-upload" type="file" className="sr-only" onChange={(e) => e.target.files && setFile(e.target.files[0])} />
-            <p className="text-xs leading-5 text-gray-400 mt-6 font-mono border border-gray-200 rounded-full px-3 py-1 bg-white">Accepts PDF, JPG, PNG up to 20MB</p>
+            <p className="text-xs leading-5 text-muted mt-6 font-mono border border-border rounded-full px-3 py-1 bg-card">Accepts PDF, JPG, PNG up to 20MB</p>
           </div>
           
           {file && (
             <div className="mt-8 flex items-center justify-between bg-surface px-6 py-4 border border-border rounded-xl">
               <div className="flex items-center gap-4">
-                <div className="p-2 bg-white rounded shadow-sm">
+                <div className="p-2 bg-card rounded shadow-sm">
                   <FileIcon className="h-6 w-6 text-primary" />
                 </div>
                 <div className="flex flex-col">
@@ -93,7 +93,7 @@ export default function UploadClaim() {
           )}
         </div>
       ) : (
-        <div className="bg-white border border-border rounded-card shadow-card p-12 mt-6 transition-all">
+        <div className="bg-card border border-border rounded-card shadow-card p-12 mt-6 transition-all">
           <h2 className="text-xl font-sora font-semibold text-dark mb-10 text-center">Processing Document</h2>
           <StepperProgress steps={STEPS} currentStepIndex={currentStep} />
           
