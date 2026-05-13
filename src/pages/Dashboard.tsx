@@ -67,7 +67,7 @@ export default function Dashboard() {
           <h2 className="text-lg font-sora font-semibold text-dark mb-6">Claims by Risk Level (Weekly)</h2>
           <div className="flex-1 w-full relative min-h-[200px]">
             <div className="absolute inset-0">
-              <ResponsiveContainer width="100%" height="100%">
+              <ResponsiveContainer width="100%" height="100%" minWidth={1} minHeight={1}>
                 <BarChart data={weeklyData} margin={{ top: 10, right: 10, left: -20, bottom: 0 }}>
                 <CartesianGrid strokeDasharray="3 3" vertical={false} stroke="#E5E7EB" />
                 <XAxis dataKey="day" axisLine={false} tickLine={false} tick={{fill: '#546E7A'}} />
@@ -86,7 +86,7 @@ export default function Dashboard() {
           <h2 className="text-lg font-sora font-semibold text-dark mb-6">Avg Fraud Score Trend (30 Days)</h2>
           <div className="flex-1 w-full relative min-h-[200px]">
             <div className="absolute inset-0">
-              <ResponsiveContainer width="100%" height="100%">
+              <ResponsiveContainer width="100%" height="100%" minWidth={1} minHeight={1}>
                 <AreaChart data={trendData} margin={{ top: 10, right: 10, left: -20, bottom: 0 }}>
                 <defs>
                   <linearGradient id="colorScore" x1="0" y1="0" x2="0" y2="1">
