@@ -36,7 +36,7 @@ export default function Login() {
           <div className="p-3 bg-surface rounded-2xl mb-4 text-primary">
             <ShieldAlert className="w-10 h-10" />
           </div>
-          <h2 className="text-3xl font-bold font-sora text-dark tracking-tight">IntelliShield</h2>
+          <h2 className="text-3xl font-bold font-sora text-dark tracking-tight">IntelliClaim</h2>
           <p className="text-sm text-muted mt-2 text-center">Enter your investigator credentials to access the Fraud Detection Platform</p>
         </div>
         
@@ -56,7 +56,7 @@ export default function Login() {
               value={email}
               onChange={(e) => { setEmail(e.target.value); setError(''); }}
               className="w-full px-4 py-3 border border-border rounded-btn bg-surface focus:outline-none focus:ring-2 focus:ring-primary/40 focus:border-primary transition-all text-dark"
-              placeholder="investigator@intellishield.ai"
+              placeholder="investigator@intelliclaim.ai"
             />
           </div>
           
@@ -83,7 +83,7 @@ export default function Login() {
       </div>
       
       <div className="mt-8 text-center text-xs text-muted relative z-10 animate-in fade-in duration-500 delay-200">
-         <p>© 2026 IntelliShield Auth Gateway</p>
+         <p>© 2026 IntelliClaim Auth Gateway</p>
          <p>IRDAI Regulatory Compliance Framework v2.0</p>
       </div>
     </div>

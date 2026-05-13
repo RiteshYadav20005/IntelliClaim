@@ -5,14 +5,14 @@ services:
     build: 
       context: ./backend
       dockerfile: Dockerfile
-    container_name: intellishield_backend
+    container_name: intelliclaim_backend
     ports:
       - "8000:8000"
     env_file:
       - .env.example
     environment:
       - MONGODB_URL=mongodb://root:example@mongodb:27017/
-      - POSTGRES_URL=postgresql+asyncpg://postgres:postgres@postgres:5432/intellishield
+      - POSTGRES_URL=postgresql+asyncpg://postgres:postgres@postgres:5432/intelliclaim
       - REDIS_URL=redis://redis:6379/0
     depends_on:
       - mongodb
@@ -24,7 +24,7 @@ services:
     build:
       context: .
       dockerfile: Dockerfile
-    container_name: intellishield_frontend
+    container_name: intelliclaim_frontend
     ports:
       - "3000:3000"
     volumes:
@@ -38,7 +38,7 @@ services:
 
   mongodb:
     image: mongo:6.0
-    container_name: intellishield_mongo
+    container_name: intelliclaim_mongo
     ports:
       - "27017:27017"
     environment:
@@ -49,19 +49,19 @@ services:
 
   postgres:
     image: postgres:15-alpine
-    container_name: intellishield_postgres
+    container_name: intelliclaim_postgres
     ports:
       - "5432:5432"
     environment:
       POSTGRES_USER: postgres
       POSTGRES_PASSWORD: postgres
-      POSTGRES_DB: intellishield
+      POSTGRES_DB: intelliclaim
     volumes:
       - postgres_data:/var/lib/postgresql/data
 
   redis:
     image: redis:7-alpine
-    container_name: intellishield_redis
+    container_name: intelliclaim_redis
     ports:
       - "6379:6379"
     volumes:

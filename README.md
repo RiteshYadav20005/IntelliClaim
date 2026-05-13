@@ -1,7 +1,7 @@
-# IntelliShield — Insurance Fraud Detection Platform
+# IntelliClaim — Insurance Fraud Detection Platform
 
 ## Overview
-IntelliShield is a comprehensive, production-ready AI/ML web application designed to automate the ingestion, validation, and cross-checking of insurance claim documents to detect fraud. Built to comply with IRDAI Insurance Fraud Monitoring Framework Guidelines 2025.
+IntelliClaim is a comprehensive, production-ready AI/ML web application designed to automate the ingestion, validation, and cross-checking of insurance claim documents to detect fraud. Built to comply with IRDAI Insurance Fraud Monitoring Framework Guidelines 2025.
 
 ## Architecture
 ```mermaid
@@ -20,7 +20,7 @@ graph TD;
 ## Setup Instructions
 
 1. Configure environment variables:
-   Copy `ai_shield/.env.example` to `ai_shield/.env` and update the placeholders with real credentials.
+   Copy `.env.example` to `.env` and update the placeholders with real credentials.
 
 2. Run with Docker Compose:
    ```bash

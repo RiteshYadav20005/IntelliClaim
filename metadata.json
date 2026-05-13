@@ -1,6 +1,6 @@
 {
-  "name": "",
-  "description": "",
+  "name": "IntelliClaim",
+  "description": "Insurance Fraud Detection Platform",
   "requestFramePermissions": [],
   "majorCapabilities": []
 }
