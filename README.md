@@ -3,7 +3,7 @@
 ## Overview
 IntelliShield is a comprehensive, production-ready AI/ML web application designed to automate the ingestion, validation, and cross-checking of insurance claim documents to detect fraud. Built to comply with IRDAI Insurance Fraud Monitoring Framework Guidelines 2025.
 
-## Architecture Architecture
+## Architecture
 ```mermaid
 graph TD;
     Frontend(React + Vite) -->|API Calls / HTTPS| Backend(FastAPI)
