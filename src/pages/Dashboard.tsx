@@ -65,9 +65,10 @@ export default function Dashboard() {
       <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
         <div className="bg-white rounded-card shadow-card border border-border p-6 h-96 flex flex-col">
           <h2 className="text-lg font-sora font-semibold text-dark mb-6">Claims by Risk Level (Weekly)</h2>
-          <div className="flex-1 w-full min-h-[200px]">
-            <ResponsiveContainer width="100%" height="100%" minWidth={0} minHeight={0}>
-              <BarChart data={weeklyData} margin={{ top: 10, right: 10, left: -20, bottom: 0 }}>
+          <div className="flex-1 w-full relative min-h-[200px]">
+            <div className="absolute inset-0">
+              <ResponsiveContainer width="100%" height="100%">
+                <BarChart data={weeklyData} margin={{ top: 10, right: 10, left: -20, bottom: 0 }}>
                 <CartesianGrid strokeDasharray="3 3" vertical={false} stroke="#E5E7EB" />
                 <XAxis dataKey="day" axisLine={false} tickLine={false} tick={{fill: '#546E7A'}} />
                 <YAxis axisLine={false} tickLine={false} tick={{fill: '#546E7A'}} />
@@ -77,14 +78,16 @@ export default function Dashboard() {
                 <Bar dataKey="HIGH" stackId="a" fill="#FFEBEE" radius={[4, 4, 0, 0]} />
               </BarChart>
             </ResponsiveContainer>
+            </div>
           </div>
         </div>
 
         <div className="bg-white rounded-card shadow-card border border-border p-6 h-96 flex flex-col">
           <h2 className="text-lg font-sora font-semibold text-dark mb-6">Avg Fraud Score Trend (30 Days)</h2>
-          <div className="flex-1 w-full min-h-[200px]">
-            <ResponsiveContainer width="100%" height="100%" minWidth={0} minHeight={0}>
-              <AreaChart data={trendData} margin={{ top: 10, right: 10, left: -20, bottom: 0 }}>
+          <div className="flex-1 w-full relative min-h-[200px]">
+            <div className="absolute inset-0">
+              <ResponsiveContainer width="100%" height="100%">
+                <AreaChart data={trendData} margin={{ top: 10, right: 10, left: -20, bottom: 0 }}>
                 <defs>
                   <linearGradient id="colorScore" x1="0" y1="0" x2="0" y2="1">
                     <stop offset="5%" stopColor="#0D47A1" stopOpacity={0.3}/>
@@ -98,6 +101,7 @@ export default function Dashboard() {
                 <Area type="monotone" dataKey="score" stroke="#0D47A1" strokeWidth={3} fillOpacity={1} fill="url(#colorScore)" />
               </AreaChart>
             </ResponsiveContainer>
+            </div>
           </div>
         </div>
       </div>

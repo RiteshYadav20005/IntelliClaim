@@ -13,8 +13,9 @@ export default function ShapWaterfall({ features }: ShapWaterfallProps) {
   }));
 
   return (
-    <div className="w-full h-80 min-h-[300px]">
-      <ResponsiveContainer width="100%" height="100%" minWidth={0} minHeight={0}>
+    <div className="w-full h-80 relative min-h-[300px]">
+      <div className="absolute inset-0">
+        <ResponsiveContainer width="100%" height="100%">
         <BarChart
           data={data}
           layout="vertical"
@@ -42,6 +43,7 @@ export default function ShapWaterfall({ features }: ShapWaterfallProps) {
           </Bar>
         </BarChart>
       </ResponsiveContainer>
+      </div>
     </div>
   );
 }
