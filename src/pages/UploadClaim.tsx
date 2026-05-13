@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import React, { useState } from 'react';
 import { UploadCloud, CheckCircle } from 'lucide-react';
 import { useNavigate } from 'react-router-dom';
 import StepperProgress from '../components/StepperProgress';

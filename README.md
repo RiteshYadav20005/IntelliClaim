@@ -1,20 +1,36 @@
-<div align="center">
-<img width="1200" height="475" alt="GHBanner" src="https://github.com/user-attachments/assets/0aa67016-6eaf-458a-adb2-6e31a0763ed6" />
-</div>
+# IntelliShield — Insurance Fraud Detection Platform
 
-# Run and deploy your AI Studio app
+## Overview
+IntelliShield is a comprehensive, production-ready AI/ML web application designed to automate the ingestion, validation, and cross-checking of insurance claim documents to detect fraud. Built to comply with IRDAI Insurance Fraud Monitoring Framework Guidelines 2025.
 
-This contains everything you need to run your app locally.
+## Architecture Architecture
+```mermaid
+graph TD;
+    Frontend(React + Vite) -->|API Calls / HTTPS| Backend(FastAPI)
+    Backend -->|Async queries| MongoDB[(Document metadata)]
+    Backend -->|Async queries| Postgres[(Structured claims)]
+    Backend -->|Cache/Queue| Redis[(Redis)]
+    
+    Backend -->|Extract Text| OCR[Tesseract OCR & Google Vision]
+    Backend -->|Extract Entities| NLP[BERT NER Pipeline]
+    Backend -->|Risk Assessment| FraudEngine[XGBoost + RF + Image CNN]
+    Backend -->|Cross-verification| GovAPIs[NSDL, UIDAI, VAHAN, Bank]
+```
 
-View your app in AI Studio: https://ai.studio/apps/927a7766-4411-4272-ab96-0b2bc9735c50
+## Setup Instructions
 
-## Run Locally
+1. Configure environment variables:
+   Copy `ai_shield/.env.example` to `ai_shield/.env` and update the placeholders with real credentials.
 
-**Prerequisites:**  Node.js
+2. Run with Docker Compose:
+   ```bash
+   docker-compose up --build
+   ```
 
+3. Access the application:
+   - Frontend: `http://localhost:3000`
+   - Backend API Docs: `http://localhost:8000/docs`
 
-1. Install dependencies:
-   `npm install`
-2. Set the `GEMINI_API_KEY` in [.env.local](.env.local) to your Gemini API key
-3. Run the app:
-   `npm run dev`
+## Dataset Instructions
+Use `Insurance_Fraud_Dataset.xlsx` for model training. 
+Execute `backend/ml_training/seed_db.py` to populate MongoDB with the 200 sample claims.

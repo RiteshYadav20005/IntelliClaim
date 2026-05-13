@@ -3,13 +3,13 @@ version: '3.8'
 services:
   backend:
     build: 
-      context: ./ai_shield/backend
+      context: ./backend
       dockerfile: Dockerfile
     container_name: intellishield_backend
     ports:
       - "8000:8000"
     env_file:
-      - ./ai_shield/.env.example
+      - .env.example
     environment:
       - MONGODB_URL=mongodb://root:example@mongodb:27017/
       - POSTGRES_URL=postgresql+asyncpg://postgres:postgres@postgres:5432/intellishield
@@ -22,16 +22,16 @@ services:
 
   frontend:
     build:
-      context: ./ai_shield/frontend
+      context: .
       dockerfile: Dockerfile
     container_name: intellishield_frontend
     ports:
       - "3000:3000"
     volumes:
-      - ./ai_shield/frontend:/app
+      - .:/app
       - /app/node_modules
     env_file:
-      - ./ai_shield/.env.example
+      - .env.example
     depends_on:
       - backend
     command: npm run dev -- --host 0.0.0.0
