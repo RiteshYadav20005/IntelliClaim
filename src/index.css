@@ -1,1 +1,41 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Sora:wght@400;600;700&display=swap');
+
 @import "tailwindcss";
+
+@theme {
+  --color-primary: #0D47A1;
+  --color-primary-light: #1565C0;
+  --color-surface: #F0F4FF;
+  --color-card: #FFFFFF;
+  --color-dark: #0A2540;
+  --color-muted: #546E7A;
+  
+  --color-success-bg: #D4EDDA;
+  --color-success-text: #1B5E20;
+  
+  --color-warning-bg: #FFF3E0;
+  --color-warning-text: #E65100;
+  
+  --color-danger-bg: #FFEBEE;
+  --color-danger-text: #B71C1C;
+
+  --font-sora: Sora, sans-serif;
+  --font-inter: Inter, sans-serif;
+
+  --radius-card: 12px;
+  --radius-btn: 8px;
+  --radius-badge: 6px;
+
+  --shadow-card: 0 2px 16px rgba(13, 71, 161, 0.10);
+}
+
+@layer base {
+  body {
+    @apply bg-surface text-dark font-inter;
+  }
+  h1, h2, h3, h4, h5, h6 {
+    @apply font-sora font-semibold text-dark;
+  }
+}
+
+
