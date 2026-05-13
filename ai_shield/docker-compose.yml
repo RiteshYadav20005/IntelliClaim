@@ -1,0 +1,73 @@
+version: '3.8'
+
+services:
+  backend:
+    build: 
+      context: ./ai_shield/backend
+      dockerfile: Dockerfile
+    container_name: intellishield_backend
+    ports:
+      - "8000:8000"
+    env_file:
+      - ./ai_shield/.env.example
+    environment:
+      - MONGODB_URL=mongodb://root:example@mongodb:27017/
+      - POSTGRES_URL=postgresql+asyncpg://postgres:postgres@postgres:5432/intellishield
+      - REDIS_URL=redis://redis:6379/0
+    depends_on:
+      - mongodb
+      - postgres
+      - redis
+    command: uvicorn app.main:app --host 0.0.0.0 --port 8000 --reload
+
+  frontend:
+    build:
+      context: ./ai_shield/frontend
+      dockerfile: Dockerfile
+    container_name: intellishield_frontend
+    ports:
+      - "3000:3000"
+    volumes:
+      - ./ai_shield/frontend:/app
+      - /app/node_modules
+    env_file:
+      - ./ai_shield/.env.example
+    depends_on:
+      - backend
+    command: npm run dev -- --host 0.0.0.0
+
+  mongodb:
+    image: mongo:6.0
+    container_name: intellishield_mongo
+    ports:
+      - "27017:27017"
+    environment:
+      MONGO_INITDB_ROOT_USERNAME: root
+      MONGO_INITDB_ROOT_PASSWORD: example
+    volumes:
+      - mongo_data:/data/db
+
+  postgres:
+    image: postgres:15-alpine
+    container_name: intellishield_postgres
+    ports:
+      - "5432:5432"
+    environment:
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: postgres
+      POSTGRES_DB: intellishield
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+
+  redis:
+    image: redis:7-alpine
+    container_name: intellishield_redis
+    ports:
+      - "6379:6379"
+    volumes:
+      - redis_data:/data
+
+volumes:
+  mongo_data:
+  postgres_data:
+  redis_data:

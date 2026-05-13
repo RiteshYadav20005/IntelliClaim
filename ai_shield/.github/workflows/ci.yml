@@ -1,0 +1,49 @@
+name: IntelliShield CI
+
+on:
+  push:
+    branches: [ main ]
+  pull_request:
+    branches: [ main ]
+
+jobs:
+  backend-lint-and-test:
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v3
+    - name: Set up Python 3.11
+      uses: actions/setup-python@v4
+      with:
+        python-version: "3.11"
+    - name: Install dependencies
+      run: |
+        python -m pip install --upgrade pip
+        pip install -r ai_shield/backend/requirements.txt
+    - name: Lint with ruff
+      run: |
+        pip install ruff
+        ruff check ai_shield/backend
+    - name: Run pytests
+      run: |
+        pytest ai_shield/backend/tests
+
+  frontend-lint-and-test:
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v3
+    - name: Use Node.js 18
+      uses: actions/setup-node@v3
+      with:
+        node-version: 18
+    - name: Install dependencies
+      run: |
+        cd ai_shield/frontend
+        npm install
+    - name: Lint with Eslint
+      run: |
+        cd ai_shield/frontend
+        npm run lint
+    - name: Run frontend tests
+      run: |
+        cd ai_shield/frontend
+        npm run test
